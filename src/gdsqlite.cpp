@@ -12,8 +12,8 @@ void SQLite::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("create_table", "table_name", "table_data"), &SQLite::create_table);
 	ClassDB::bind_method(D_METHOD("drop_table", "table_name"), &SQLite::drop_table);
 
-	ClassDB::bind_method(D_METHOD("backup_to", "destination"), &SQLite::backup_to);
-	ClassDB::bind_method(D_METHOD("restore_from", "source"), &SQLite::restore_from);
+	ClassDB::bind_method(D_METHOD("backup_to", "destination_path"), &SQLite::backup_to);
+	ClassDB::bind_method(D_METHOD("restore_from", "source_path"), &SQLite::restore_from);
 
 	ClassDB::bind_method(D_METHOD("insert_row", "table_name", "row_data"), &SQLite::insert_row);
 	ClassDB::bind_method(D_METHOD("insert_rows", "table_name", "row_array"), &SQLite::insert_rows);
