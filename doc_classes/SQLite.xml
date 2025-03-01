@@ -81,7 +81,7 @@
 				# Executes following query: 
 				# SELECT name FROM company WHERE age &lt; 24;
 				[/codeblock]
-				Using bindings is optional, except for PackedByteArray (= raw binary data) which has to binded to allow the insertion and selection of BLOB data in the database.
+				Using bindings is optional, except for [PackedByteArray] (= raw binary data) which has to binded to allow the insertion and selection of BLOB data in the database.
 				[i][b]NOTE:[/b] Binding column names is not possible due to SQLite restrictions. If dynamic column names are required, insert the column name directly into the [code]query_string[/code]-variable itself (see [url=https://github.com/2shady4u/godot-sqlite/issues/41]https://github.com/2shady4u/godot-sqlite/issues/41[/url]).[/i]
 			</description>
 		</method>
@@ -90,7 +90,7 @@
 			<param index="0" name="table_name" type="String" />
 			<param index="1" name="table_data" type="Dictionary" />
 			<description>
-				Each key/value pair of the [code]table_dictionary[/code]-variable defines a column of the table. Each key defines the name of a column in the database, while the value is a dictionary that contains further column specifications.
+				Each key/value pair of the [code]table_dictionary[/code]-variable defines a column of the table. Each key defines the name of a column in the database, while the value is a [Dictionary] that contains further column specifications.
 				[b]Required fields[/b]:
 				- [b]"data_type"[/b]: type of the column variable, following values are valid*:
 				    - "int" (SQLite: INTEGER, GODOT: [constant TYPE_INT])[br]    - "real" (SQLite: REAL, GODOT: [constant TYPE_REAL])[br]    - "text" (SQLite: TEXT, GODOT: [constant TYPE_STRING])[br]    - "char(?)"** (SQLite: CHAR(?)**, GODOT: [constant TYPE_STRING])[br]    - "blob" (SQLite: BLOB, GODOT: [constant TYPE_PACKED_BYTE_ARRAY])
@@ -139,7 +139,7 @@
 			<param index="0" name="table_name" type="String" />
 			<param index="1" name="row_array" type="Array" />
 			<description>
-				Insert multiple rows into the given table. The [code]row_array[/code] input argument should be an array of dictionaries where each element is defined as in [method insert_row].
+				Insert multiple rows into the given table. The [code]row_array[/code] input argument should be an [Array] of [Dictionary]'s where each element is defined as in [method insert_row].
 			</description>
 		</method>
 		<method name="select_rows">
@@ -199,14 +199,14 @@
 		</method>
 		<method name="backup_to">
 			<return type="bool" />
-			<param index="0" name="destination" type="String" />
+			<param index="0" name="destination_path" type="String" />
 			<description>
 				Backup the current database to a path, see [url=https://www.sqlite.org/backup.html]here[/url]. This feature is useful if you are using a database as your save file and you want to easily implement a saving mechanic.
 			</description>
 		</method>
 		<method name="restore_from">
 			<return type="bool" />
-			<param index="0" name="source" type="String" />
+			<param index="0" name="source_path" type="String" />
 			<description>
 				Restore the current database from a path, see [url=https://www.sqlite.org/backup.html]here[/url]. This feature is useful if you are using a database as your save file and you want to easily implement a loading mechanic. Be warned that the original database will be overwritten entirely when restoring.
 			</description>
